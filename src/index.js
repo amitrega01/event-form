@@ -7,7 +7,6 @@ import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import eventForm from './reducer';
-
 const store = createStore(eventForm);
 
 ReactDOM.render(

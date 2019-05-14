@@ -1,26 +1,34 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { MainForm } from './components/MainForm';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import { connect } from 'react-redux';
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    console.log(this.props.eventUsers);
+  }
+
+  render() {
+    const list = this.props.eventUsers.map(item => <li>{item.email}</li>);
+    return (
+      <div className='App'>
+        <h1>Sign up for event</h1>
+        <MainForm
+          signUp={user => {
+            console.log(user);
+            this.props.dispatch({
+              type: 'SIGNUP',
+              user: user,
+            });
+          }}
+        />
+        <ul>{list}</ul>
+      </div>
+    );
+  }
 }
-
-export default App;
+const mapStateToProps = state => ({
+  eventUsers: state.eventUsers,
+});
+export default connect(mapStateToProps)(App);
