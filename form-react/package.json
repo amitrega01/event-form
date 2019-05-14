@@ -7,9 +7,7 @@
     "react-datepicker": "^2.5.0",
     "react-dom": "^16.8.6",
     "react-redux": "^7.0.3",
-    "react-redux-form": "^1.16.13",
     "react-scripts": "3.0.1",
-    "react-validation": "^3.0.7",
     "redux": "^4.0.1"
   },
   "scripts": {
