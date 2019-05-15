@@ -1,4 +1,3 @@
-'use strict';
 module.exports = function(app) {
   var eventUsers = require('../controllers/eventUsersController');
 
