@@ -6,7 +6,7 @@ import './MainForm.css';
 
 const today = new Date();
 
-export class MainForm extends Component {
+class MainForm extends Component {
   state = {
     firstName: '',
     eventDate: today,
@@ -15,7 +15,7 @@ export class MainForm extends Component {
   };
   handleDateChange(date) {
     this.setState({ eventDate: date >= today ? date : today });
-    if (date < today) alert("We can't get you back in time!");
+    if (date < today) this.props.dispatch({ type: 'BAD_DATE' });
   }
   handleSubmit = event => {
     this.props.signUp(this.state);
@@ -67,4 +67,5 @@ export class MainForm extends Component {
     );
   }
 }
-export default connect()(MainForm);
+const mapStateToProps = state => ({});
+export default connect(mapStateToProps)(MainForm);
