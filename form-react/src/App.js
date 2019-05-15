@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
-import { MainForm } from './components/MainForm';
 import { connect } from 'react-redux';
 import PopUp from './components/PopUp';
+import MainForm from './components/MainForm';
 var moment = require('moment');
 
 class App extends React.Component {

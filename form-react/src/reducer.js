@@ -37,6 +37,15 @@ export default function eventForm(state = initialState, action) {
         },
       };
     }
+    case 'BAD_DATE': {
+      return {
+        ...state,
+        popUp: {
+          message: "We can't get you back in time!",
+          visible: true,
+        },
+      };
+    }
     default:
       return state;
   }
