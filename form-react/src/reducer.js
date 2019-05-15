@@ -1,29 +1,41 @@
 const initialState = {
   eventUsers: [],
+  popUp: {
+    visible: false,
+    message: 'Added successfully!',
+  },
 };
 export default function eventForm(state = initialState, action) {
   switch (action.type) {
-    case 'SIGNUP': {
-      console.log('DISPATCHER');
-      let userString = JSON.stringify(action.user);
-      console.log(userString);
-      let data = {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
+    case 'SIGNUP_OK': {
+      return {
+        eventUsers: [...state.eventUsers, action.user],
+        popUp: {
+          message: action.message,
+          visible: true,
         },
-        body: userString,
       };
-      fetch('http://localhost:3001/eventUsers', data)
-        .then(res => res.json())
-        .then(data => {
-          console.log(data);
-          if (data.err) alert(data.err);
-        });
-      return { eventUsers: [...state.eventUsers, action.user] };
+    }
+    case 'SIGNUP_NOTOK': {
+      return {
+        ...state,
+        popUp: {
+          message: action.message,
+          visible: true,
+        },
+      };
     }
     case 'FROMDB': {
-      return { eventUsers: action.users };
+      return { eventUsers: action.users, popUp: state.popUp };
+    }
+    case 'CLOSE_POPUP': {
+      return {
+        ...state,
+        popUp: {
+          ...state.popUp,
+          visible: false,
+        },
+      };
     }
     default:
       return state;
