@@ -1,8 +1,6 @@
-'use strict';
-
 var mongoose = require('mongoose'),
   EventUser = mongoose.model('EventUsers');
-
+var moment = require('moment');
 exports.allUsers = function(req, res) {
   EventUser.find({}, function(err, EventUser) {
     if (err) res.send(err);
@@ -12,21 +10,28 @@ exports.allUsers = function(req, res) {
 
 exports.addUser = function(req, res) {
   var newEventUser = new EventUser(req.body);
+
   console.log(newEventUser);
   EventUser.find(
     { email: newEventUser.email, eventDate: newEventUser.eventDate },
     function(err, docs) {
       if (docs.length) {
-        let err = {
-          err: `User ${newEventUser.email} alredy signed up for ${
+        let data = {
+          message: `${newEventUser.email} already signed up for ${moment(
             newEventUser.eventDate
-          }`,
+          ).format('DD-MM-YYYY')}`,
+          added: false,
         };
-        res.send(JSON.stringify(err));
+        console.log(data);
+        res.json(data);
       } else {
         newEventUser.save(function(err, EventUser) {
           if (err) res.send(err);
-          res.json(EventUser);
+          res.json({
+            added: true,
+            message: 'Added successfully!',
+            user: EventUser,
+          });
         });
       }
     }

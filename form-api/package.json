@@ -4,7 +4,7 @@
   "description": "api ",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha --timeout 10000",
     "start": "nodemon server.js"
   },
   "repository": {
@@ -18,10 +18,14 @@
   },
   "homepage": "https://github.com/amitrega01/event-form#readme",
   "devDependencies": {
-    "nodemon": "^1.19.0"
+    "nodemon": "^1.19.0",
+    "chai": "^3.5.0",
+    "chai-http": "^2.0.1",
+    "mocha": "^2.4.5"
   },
   "dependencies": {
     "express": "^4.16.4",
+    "moment": "^2.24.0",
     "mongoose": "^5.5.8"
   }
 }

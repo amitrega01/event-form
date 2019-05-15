@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import DatePicker from 'react-datepicker';
-
 import 'react-datepicker/dist/react-datepicker.css';
 import './MainForm.css';
 
@@ -68,5 +67,4 @@ export class MainForm extends Component {
     );
   }
 }
-
 export default connect()(MainForm);
