@@ -1,0 +1,31 @@
+{
+  "name": "event-form",
+  "version": "1.0.0",
+  "description": "api ",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --timeout 10000",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amitrega01/event-form.git"
+  },
+  "author": "amitrega01",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/amitrega01/event-form/issues"
+  },
+  "homepage": "https://github.com/amitrega01/event-form#readme",
+  "devDependencies": {
+    "nodemon": "^1.19.0",
+    "chai": "^3.5.0",
+    "chai-http": "^2.0.1",
+    "mocha": "^2.4.5"
+  },
+  "dependencies": {
+    "express": "^4.16.4",
+    "moment": "^2.24.0",
+    "mongoose": "^5.5.8"
+  }
+}

@@ -1,0 +1,36 @@
+.App {
+  align-items: center;
+  background-color: #fcfffd;
+  display: flex;
+  min-height: 100vh;
+  color: #292f36;
+  flex-direction: column;
+}
+header {
+  background-color: #48acf0;
+  width: 100vw;
+  justify-content: center;
+  z-index: 10;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 4px 4px;
+}
+h1 {
+  text-align: center;
+  color: #fff;
+}
+ul {
+  padding: 0;
+  width: 60vw;
+}
+.listItem {
+  padding: 8px;
+  min-width: 48%;
+  display: flex;
+  list-style: none;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  border: 1px solid #ddd;
+}
+.listItem span {
+  margin: 0 8px;
+}
