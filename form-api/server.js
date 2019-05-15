@@ -29,3 +29,4 @@ routes(app);
 app.listen(port);
 
 console.log('event form api on localhost:' + port);
+module.exports = app;

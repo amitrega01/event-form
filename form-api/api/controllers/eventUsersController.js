@@ -17,13 +17,13 @@ exports.addUser = function(req, res) {
     function(err, docs) {
       if (docs.length) {
         let data = {
-          message: `User ${newEventUser.email} already signed up for ${
+          message: `${newEventUser.email} already signed up for ${moment(
             newEventUser.eventDate
-          }`,
+          ).format('DD-MM-YYYY')}`,
           added: false,
         };
         console.log(data);
-        res.send(JSON.stringify(data));
+        res.json(data);
       } else {
         newEventUser.save(function(err, EventUser) {
           if (err) res.send(err);

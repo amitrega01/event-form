@@ -67,5 +67,4 @@ export class MainForm extends Component {
     );
   }
 }
-
 export default connect()(MainForm);
